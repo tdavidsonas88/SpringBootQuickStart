@@ -2,7 +2,6 @@ package lt.tadasdavidsonas88.springbootstarter.topic;
 
 import org.springframework.stereotype.Service;
 
-import javax.xml.ws.WebFault;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,5 +19,9 @@ public class TopicService {
 
     public List<Topic> getAllTopics(){
         return topics;
+    }
+
+    public Topic getTopic(String id){
+        return topics.stream().filter(topic -> topic.getId().equals(id)).findFirst().get();  // Lambda expression to compare
     }
 }
